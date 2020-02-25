@@ -4,6 +4,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 
+
+const {makeLaughHandler,homeHandler,dadHandler,geekHandler,trunaldHandler,mainHandler} = require('./data/handlers')
+
 const PORT = process.env.PORT || 8000;
 
 express()
@@ -18,6 +21,7 @@ express()
     .use(express.urlencoded({extended: false}))
     .set('view engine', 'ejs')
 
-    // endpoints
+    .get('/', homeHandler)
+    .post('/action', mainHandler)
 
     .listen(PORT, () => console.log(`Listening on port ${PORT}`));
