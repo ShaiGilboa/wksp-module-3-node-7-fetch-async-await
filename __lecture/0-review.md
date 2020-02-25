@@ -8,10 +8,10 @@ const pauseFunction = () => {
         console.log('entering the promise(d) land');
         resolve('resolve');
         console.log('...in limbo...');
-        reject('reject');
+        reject('reject'); // nevver returned
         console.log('shuffling off...');
     });
-}
+}// when calling the promise, the compiler reads through everything it can before resolving/rejecting
 ```
 
 ---

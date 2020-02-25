@@ -14,7 +14,7 @@ The syntax is very similar to Promises.
 ### `GET`
 
 ```js
-fetch('<URL>')
+fetch('<URL>') //the end point in the server
     .then(res => {
         // if response is successful
             // do something.
@@ -24,6 +24,12 @@ fetch('<URL>')
     })
     .then()
     .catch() // you can also catch errors!
+
+    // the minimum thing that needs to be sent back to the browser is 'status.()'
+    // 200 - all good
+    // 300 - 
+    // 400 - error
+    // 500 - server made a mistake
 ```
 
 ---
@@ -31,9 +37,10 @@ fetch('<URL>')
 ### `POST
 
 ```js
-fetch('<URL>'{
+fetch('<URL>', {
         method: 'POST', // (optional) for `GET`
         mode: '',       // (optional) no-cors, *cors, same-origin
+            // cors - cross origin, we need to either allow or not allow it
         cache: '',      // (optional) no-cache, reload, force-cache, only-if-cached
         credentials: '',// (optional) include, *same-origin, omit
         headers: {
