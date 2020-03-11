@@ -16,6 +16,10 @@ const compareToTen = (num) => {
 
 const myFunc = async (num) => {
     // add code here
+    try {
+        let answer = await compareToTen(num);
+        console.log(answer);
+    } catch(err){console.log(err)};
 }
 
 myFunc(15);
@@ -31,7 +35,6 @@ myFunc(8);
 
 const makeAllCaps = (array) => {
     return new Promise((resolve, reject) => {
-
         if (array.every(word => typeof word === 'string')) {
                 resolve(array.map(word => word.toUpperCase()));
             } else {
@@ -42,7 +45,6 @@ const makeAllCaps = (array) => {
 
 const sortWords = (array) => {
     return new Promise((resolve, reject) => {
-
         if (array.every(word => typeof word === 'string')) {
                 resolve(array.sort());
         } else {
@@ -53,6 +55,11 @@ const sortWords = (array) => {
 
 const textTransform = async (array) => {
     // add code here
+    try {
+        let sortedArr = await makeAllCaps(array);
+        sortedArr = await sortWords(sortedArr);
+        console.log(sortedArr)
+    } catch(err) {console.log(err)};
 }
 
 textTransform(['cucumber', 'tomatos', 'avocado']);
